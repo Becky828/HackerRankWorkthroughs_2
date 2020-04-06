@@ -13,115 +13,137 @@ char** split_string(char*);
 
 // Complete the sockMerchant function below.
 int sockMerchant(int n, int ar_count, int* ar) {
-int pair_count = 0;
-int j;
-int* current;
-int* marked;
-for (int i = 0; i < n; i++) {
-if(ar_count != 0){
-    current = ar;
-    for(j = i; j < n; j++){
-        ar = ar+1;
-        if(ar == marked){
-            ar = ar+1;
-        }
-        if(current == ar){
-            pair_count++;
-            marked = ar;
-            j = n;
-}
+	int pair_count = 0;
+	int j;
+	int* current;
+	int* marked;
+	for (int i = 0; i < n; i++) {
+		if(ar_count != 0){
+			current = ar;
+			for(j = i; j < n; j++){
+				ar = ar+1;
+				if(ar == marked){
+					ar = ar+1;
+				}
+				if(current == ar){
+					pair_count++;
+					marked = ar;
+					j = n;
+				}
 
 
-    }
-        }
-ar_count--;
-}
-return pair_count;
+			}
+		}
+		ar_count--;
+	}
+	return pair_count;
 }
 
 int main()
 {
-    FILE* fptr = fopen(getenv("OUTPUT_PATH"), "w");
 
-    char* n_endptr;
-    char* n_str = readline();
-    int n = strtol(n_str, &n_endptr, 10);
+	/*  FILE* fptr = fopen(getenv("OUTPUT_PATH"), "w");
 
-    if (n_endptr == n_str || *n_endptr != '\0') { exit(EXIT_FAILURE); }
+	    char* n_endptr;
+	    char* n_str = readline();
+	    int n = strtol(n_str, &n_endptr, 10);
 
-    char** ar_temp = split_string(readline());
+	    if (n_endptr == n_str || *n_endptr != '\0') { exit(EXIT_FAILURE); }
 
-    int* ar = malloc(n * sizeof(int));
+	    char** ar_temp = split_string(readline());
 
-    for (int i = 0; i < n; i++) {
-        char* ar_item_endptr;
-        char* ar_item_str = *(ar_temp + i);
-        int ar_item = strtol(ar_item_str, &ar_item_endptr, 10);
+	    int* ar = malloc(n * sizeof(int));
 
-        if (ar_item_endptr == ar_item_str || *ar_item_endptr != '\0') { exit(EXIT_FAILURE); }
+	    for (int i = 0; i < n; i++) {
+	    char* ar_item_endptr;
+	    char* ar_item_str = *(ar_temp + i);
+	    int ar_item = strtol(ar_item_str, &ar_item_endptr, 10);
 
-        *(ar + i) = ar_item;
-    }
+	    if (ar_item_endptr == ar_item_str || *ar_item_endptr != '\0') { exit(EXIT_FAILURE); }
 
-    int ar_count = n;
+	 *(ar + i) = ar_item;
+	 }
+	 */
+	int n  = 9;
 
-    int result = sockMerchant(n, ar_count, ar);
+	/*
+	   char* ar_temp = split_string(str, "10 20 20 10 10 30 50 10 20");
 
-    fprintf(fptr, "%d\n", result);
+	   int* ar = malloc(n * sizeof(int));
+	   for (int i = 0; i < n; i++) {
 
-    fclose(fptr);
+	   char* ar_item_endptr;
+	   char* ar_item_str = *(ar_temp + i);
+	   int ar_item = strto1(ar_item_str, &ar_item_endptr, 10);
 
-    return 0;
+	   if (ar_item_endptr == ar_item_str || *ar_item_endptr != '\0')
+	   {
+	   exit(EXIT_FAILURE);
+	   }
+	 *(ar + i) = ar_item;
+	 }
+	 */
+	int ar[] =  {10, 20, 20, 10, 10, 30, 50, 10, 20};
+
+	int ar_count = n;
+
+	int result = sockMerchant(n, ar_count, ar);
+
+	//	fprintf(fptr, "%d\n", result);
+	printf("%d\n", result);
+	//	fclose(fptr);
+
+	return 0;
 }
-
+/*
 char* readline() {
-    size_t alloc_length = 1024;
-    size_t data_length = 0;
-    char* data = malloc(alloc_length);
+	size_t alloc_length = 1024;
+	size_t data_length = 0;
+	char* data = malloc(alloc_length);
 
-    while (true) {
-        char* cursor = data + data_length;
-        char* line = fgets(cursor, alloc_length - data_length, stdin);
+	while (true) {
+		char* cursor = data + data_length;
+		char* line = fgets(cursor, alloc_length - data_length, stdin);
 
-        if (!line) { break; }
+		if (!line) { break; }
 
-        data_length += strlen(cursor);
+		data_length += strlen(cursor);
 
-        if (data_length < alloc_length - 1 || data[data_length - 1] == '\n') { break; }
+		if (data_length < alloc_length - 1 || data[data_length - 1] == '\n') { break; }
 
-        size_t new_length = alloc_length << 1;
-        data = realloc(data, new_length);
+		size_t new_length = alloc_length << 1;
+		data = realloc(data, new_length);
 
-        if (!data) { break; }
+		if (!data) { break; }
 
-        alloc_length = new_length;
-    }
+		alloc_length = new_length;
+	}
 
-    if (data[data_length - 1] == '\n') {
-        data[data_length - 1] = '\0';
-    }
+	if (data[data_length - 1] == '\n') {
+		data[data_length - 1] = '\0';
+	}
 
-    data = realloc(data, data_length);
+	data = realloc(data, data_length);
 
-    return data;
+	return data;
 }
 
 char** split_string(char* str) {
-    char** splits = NULL;
-    char* token = strtok(str, " ");
+	char** splits = NULL;
+	char* token = strtok(str, " ");
 
-    int spaces = 0;
+	int spaces = 0;
 
-    while (token) {
-        splits = realloc(splits, sizeof(char*) * ++spaces);
-        if (!splits) {
-            return splits;
-        }
+	while (token) {
+		splits = realloc(splits, sizeof(char*) * ++spaces);
+		if (!splits) {
+			return splits;
+		}
 
-        splits[spaces - 1] = token;
+		splits[spaces - 1] = token;
 
-        token = strtok(NULL, " ");
-    }
+		token = strtok(NULL, " ");
+	}
 
-    return splits;
-}
+	return splits;
+}*/
