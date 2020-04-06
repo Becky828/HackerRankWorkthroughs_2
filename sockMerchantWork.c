@@ -14,19 +14,31 @@ int sockMerchant(int n, int ar_count, int* ar) {
 	int pair_count = 0;
 	int latest_ar_size;
 	//int latest_array[latest_ar_size];
-	int *latest_array;// = (int*)malloc(latest_ar_size*sizeof(int));
+	int latest_array[n];
+	//int *latest_array, *latest_array_trimmed;
+	//	int *latest_array=NULL;
+	//size_t latest_ar_size, trimmed_ar_size; 
+	//	int *latest_array;// = (int*)malloc(latest_ar_size*sizeof(int));
 	int latest_ar_count = 0;
 	int latest_ar_index = 0;
 	int current;
 	int test;
-	int j;
-	int k;
+	int i_loop_count = 0;
+	int j_loop_count = 0;
+	int k_loop_count = 0;
+	int l_loop_count = 0;
+	int m_loop_count = 0;
+	int o_loop_count = 0;
+	//int j;
+	//int k;
 	//	int* current;
 	//	int* marked;
 	for (int i = 0; i < n; i++) {
+		printf("i loop: %d\n", ++i_loop_count);
 		if(ar_count != 0){
 			current = ar[i];
-			for(j = i+1; j < n; j++){
+			for(int j = i+1; j < n; j++){
+				printf("j loop: %d\n", ++j_loop_count);
 				test = ar[j];
 				if(current == test){
 					latest_ar_size = n-2;
@@ -34,20 +46,28 @@ int sockMerchant(int n, int ar_count, int* ar) {
 				if(current != test){
 					latest_ar_size = n-1;
 				}
-			latest_array =(int*)malloc(latest_ar_size*sizeof(int));
+				//latest_array = (int*)malloc(latest_ar_size);
+				//latest_array=int[latest_ar_size];
+				if(latest_array == NULL){
+					printf("Could not allocate memory.");
+					exit(1);
+				}
+				//latest_array =(int*)malloc(latest_ar_size*sizeof(int));
 			}	
-			for(j = i+1; j < n; j++){
-				test = ar[j];
+			for(int k = i+1; k < n; k++){
+				printf("k loop: %d\n", ++k_loop_count);
+				//	printf("i%d\n", i);
+				//	printf("k%d\n", k);
+				//	printf("n%d\n", n);
+				test = ar[k];
 				if(current == test){
 					pair_count++;
-					for (int k = j+1; k < n; k++){
-						latest_array[latest_ar_index] = ar[k];
+					for (int l = k+1; l < n; l++){
+						printf("l loop: %d\n", ++l_loop_count);
+						latest_array[latest_ar_index] = ar[l];
 						latest_ar_count++;
 						latest_ar_index++;
 					}
-					ar_count = latest_ar_count;
-					j = n;
-					n = ar_count;
 				}
 				if(current != test){
 					latest_array[latest_ar_index] = test;
@@ -55,8 +75,27 @@ int sockMerchant(int n, int ar_count, int* ar) {
 					latest_ar_index++;
 				}
 			}
-		}
 		//		ar_count--;
+		ar_count = latest_ar_count;
+		//	k = n;
+		//	n = ar_count;
+		//	ar = NULL;
+		for(int m = 0; m < n; m++){
+			ar[m] = 0;
+		}
+		ar[ar_count];
+		for(int o = 0; o < ar_count; o++){
+			printf("o loop: %d\n", ++o_loop_count);
+			ar[o] = latest_array[o];
+
+		}
+		printf("new ar\n");
+		//	n = ar_count;
+		printf("n%d\n", n);
+		printf("\n");
+		
+		}
+
 	}
 	return pair_count;
 }
