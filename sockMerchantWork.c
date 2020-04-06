@@ -7,23 +7,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-char* readline();
-char** split_string(char*);
+//char* readline();
+//char** split_string(char*);
 // Complete the sockMerchant function below.
 int sockMerchant(int n, int ar_count, int* ar) {
 	int pair_count = 0;
-	int latest_array[n-1];
+	int latest_ar_size;
+	//int latest_array[latest_ar_size];
+	int *latest_array;// = (int*)malloc(latest_ar_size*sizeof(int));
 	int latest_ar_count = 0;
 	int latest_ar_index = 0;
 	int current;
 	int test;
 	int j;
 	int k;
-//	int* current;
-//	int* marked;
+	//	int* current;
+	//	int* marked;
 	for (int i = 0; i < n; i++) {
 		if(ar_count != 0){
 			current = ar[i];
+			for(j = i+1; j < n; j++){
+				test = ar[j];
+				if(current == test){
+					latest_ar_size = n-2;
+				}
+				if(current != test){
+					latest_ar_size = n-1;
+				}
+			latest_array =(int*)malloc(latest_ar_size*sizeof(int));
+			}	
 			for(j = i+1; j < n; j++){
 				test = ar[j];
 				if(current == test){
@@ -31,17 +43,20 @@ int sockMerchant(int n, int ar_count, int* ar) {
 					for (int k = j+1; k < n; k++){
 						latest_array[latest_ar_index] = ar[k];
 						latest_ar_count++;
+						latest_ar_index++;
 					}
 					ar_count = latest_ar_count;
 					j = n;
+					n = ar_count;
 				}
 				if(current != test){
 					latest_array[latest_ar_index] = test;
 					latest_ar_count++;
+					latest_ar_index++;
 				}
 			}
 		}
-		ar_count--;
+		//		ar_count--;
 	}
 	return pair_count;
 }
