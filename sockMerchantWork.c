@@ -12,19 +12,12 @@
 // Complete the sockMerchant function below.
 int sockMerchant(int n, int ar_count, int* ar) {
 	int pair_count = 0;
-	int latest_ar_size;
 	int latest_array[n];
 	int latest_ar_count = 0;
 	int latest_ar_index = -1;
 	int ar_index = 0;
 	int current;
 	int test;
-	int i_loop_count = 0;
-	int j_loop_count = 0;
-	int k_loop_count = 0;
-	int l_loop_count = 0;
-	int m_loop_count = 0;
-	int o_loop_count = 0;
 	while(ar_count != 0){		
 		latest_ar_count = 0;
 		latest_ar_index = -1;
@@ -37,16 +30,16 @@ int sockMerchant(int n, int ar_count, int* ar) {
 				++latest_ar_count;
 			}
 			ar_count = latest_ar_count;
-		//	printf("ar_count: %d\n", ar_count);
+			//	printf("ar_count: %d\n", ar_count);
 		}
 		if(current != test){
 			latest_array[++latest_ar_index] = test;
 			++latest_ar_count;
-		//	ar_count = latest_ar_count;
-		//	printf("ar count: %d\n", ar_count);
+			//	ar_count = latest_ar_count;
+			//	printf("ar count: %d\n", ar_count);
 		}
 	}
-//	printf("pair count: %d\n", pair_count);
+	//	printf("pair count: %d\n", pair_count);
 	return pair_count;
 }
 int main()
