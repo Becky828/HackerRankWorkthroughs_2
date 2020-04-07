@@ -18,28 +18,34 @@ int sockMerchant(int n, int ar_count, int* ar) {
 	int ar_index = 0;
 	int current;
 	int test;
-	while(ar_count != 0){		
+	printf("\n");
+	while((ar_count != 0) && (ar_count > -1)){		
 		latest_ar_count = 0;
 		latest_ar_index = -1;
+		ar_index = 0;
 		current = ar[ar_index];
 		test = ar[++ar_index];	
 		if(current == test){
 			++pair_count;
 			for(int i = ++ar_index; i < ar_count; i++){
-				latest_array[++latest_ar_index] = ar[ar_index];
+				latest_array[++latest_ar_index] = ar[i];
 				++latest_ar_count;
+				printf("ar%d ", ar[i]);
 			}
-			ar_count = latest_ar_count;
-			//	printf("ar_count: %d\n", ar_count);
+			printf("\n");
+			ar_count-=2;
+			printf("ar_count: %d\n", ar_count);
+			printf("\n");
 		}
 		if(current != test){
 			latest_array[++latest_ar_index] = test;
 			++latest_ar_count;
-			//	ar_count = latest_ar_count;
-			//	printf("ar count: %d\n", ar_count);
+			printf("ar count: %d\n", ar_count);
+			ar_count--;
+			printf("\n");
 		}
+		ar = latest_array;
 	}
-	//	printf("pair count: %d\n", pair_count);
 	return pair_count;
 }
 int main()
@@ -60,6 +66,7 @@ int main()
 	 }
 	 */
 	int n  = 9;
+	//	int n = 10;
 	/*
 	   char* ar_temp = split_string(str, "10 20 20 10 10 30 50 10 20");
 	   int* ar = malloc(n * sizeof(int));
@@ -75,6 +82,7 @@ int main()
 	 }
 	 */
 	int ar[] =  {10, 20, 20, 10, 10, 30, 50, 10, 20};
+	//	int ar[] = {1, 1, 3, 1, 2, 1, 3, 3, 3, 3};	
 	int ar_count = n;
 	int result = sockMerchant(n, ar_count, ar);
 	//	fprintf(fptr, "%d\n", result);
