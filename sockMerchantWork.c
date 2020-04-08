@@ -12,39 +12,84 @@
 // Complete the sockMerchant function below.
 int sockMerchant(int n, int ar_count, int* ar) {
 	int pair_count = 0;
-	int latest_array[n];
-	int latest_ar_count = 0;
-	int latest_ar_index = -1;
-	int ar_index = 0;
+	//int latest_array[n];
+	//int latest_ar_count = 0;
+	//int latest_ar_index = -1;
+	int cur_ar_index = 0;
+	int nex_ar_index = 0;
+int init_ar_index = 0;
 	int current;
 	int test;
+	int i = 0;
 	printf("\n");
-	while((ar_count != 0) && (ar_count > -1)){		
-		latest_ar_count = 0;
-		latest_ar_index = -1;
-		ar_index = 0;
-		current = ar[ar_index];
-		test = ar[++ar_index];	
-		if(current == test){
+	//while((ar_count != 0) && (ar_count > -1)){		
+	current = ar[cur_ar_index];
+	nex_ar_index = ++cur_ar_index;
+	test = ar[nex_ar_index];
+printf("initial index: %d", init_ar_index);
+while(i != ar_count){
+		//for(int i = 0;i < ar_count; i++)	
+		//	latest_ar_count = 0;
+		//	latest_ar_index = -1;
+		//	ar_index = 0;
+		//	current = ar[cur_ar_index];
+		printf("\ncurrent: %d\n", current);
+		//init_ar_index = cur_ar_index;
+		nex_ar_index = ++cur_ar_index;
+		//	ar_index = ++ar_index;
+
+	//	test = ar[nex_ar_index];	
+		printf("\ntest: %d\n", test);
+		if((current == test) && (current != 0) && (test != 0)){
+			ar[init_ar_index] = 0;
+			printf("current index: %d\n" , cur_ar_index);
+		printf("initial index: %d\n", init_ar_index);
+			ar[nex_ar_index] = 0;
 			++pair_count;
-			for(int i = ++ar_index; i < ar_count; i++){
-				latest_array[++latest_ar_index] = ar[i];
-				++latest_ar_count;
-				printf("ar%d ", ar[i]);
+		init_ar_index = ++init_ar_index;	
+			//cur_ar_index = ++cur_ar_index;
+			if(ar[init_ar_index] != 0){
+				current = ar[init_ar_index];
+		//cur_ar_index = ++init_ar_index;
+	
+		printf("current index: %d\n", cur_ar_index);
+		test = ar[++init_ar_index];	
+	printf("\nHello! test: %d\n", test);
+printf("current: %d\n", current);
+	printf("init index: %d\n", init_ar_index);
 			}
-			printf("\n");
-			ar_count-=2;
-			printf("ar_count: %d\n", ar_count);
+			/*
+			   for(i; i < 4; i++){
+			   latest_array[++latest_ar_index] = ar[i];
+			   ++latest_ar_count;
+			   }
+			   */
+			//		ar_count-=2;
+			//		printf("ar_count: %d\n", ar_count);
 			printf("\n");
 		}
 		if(current != test){
-			latest_array[++latest_ar_index] = test;
-			++latest_ar_count;
-			printf("ar count: %d\n", ar_count);
-			ar_count--;
+			//latest_array[++latest_ar_index] = test;
+			//++latest_ar_count;
+			//	printf("ar count: %d\n", ar_count);
+			printf("ar element %d ",test);
+			//ar_count--;
 			printf("\n");
 		}
-		ar = latest_array;
+		//	ar = latest_array;
+test = ar[++nex_ar_index];
+		printf("array\n");
+		for (int i = 0; i < ar_count; i++){
+			printf("%d ", ar[i]);
+		}
+		printf("\n\n");
+		/*
+		   printf("\n\nlatest array\n");
+		   for(int i = 0; i < ar_count; i++){
+		   printf("%d ", latest_array[i]);
+		   }
+		   */
+		i++;
 	}
 	return pair_count;
 }
