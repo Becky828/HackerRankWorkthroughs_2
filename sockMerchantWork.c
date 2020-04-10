@@ -12,42 +12,21 @@
 // Complete the sockMerchant function below.
 int sockMerchant(int n, int ar_count, int* ar) {
 	int pair_count = 0;
-	//int latest_array[n];
-	//int latest_ar_count = 0;
-	//int latest_ar_index = -1;
 	int current_index = 0;
 	int test_index = 0;
-	//int nex_ar_index = 0;
 	int init_ar_index = 0;
 	int current;
 	int test;
 	int i = 0;
 	printf("\n");
-	//while((ar_count != 0) && (ar_count > -1)){		
 	current = ar[current_index];
 	test_index = current_index;
 	++test_index;
-	//nex_ar_index = ++cur_ar_index;
 	test = ar[test_index];
-	//	printf("initial index: %d\n", init_ar_index);
-
 	while(i != ar_count){
-		//for(int i = 0;i < ar_count; i++)	
-		//	latest_ar_count = 0;
-		//	latest_ar_index = -1;
-		//	ar_index = 0;
-		//	current = ar[cur_ar_index];
-		//	printf("\ncurrent: %d\n", current);
-		//init_ar_index = cur_ar_index;
-		//nex_ar_index = ++cur_ar_index;
-		//	ar_index = ++ar_index;
-
-		//	test = ar[nex_ar_index];	
-		//	printf("\ntest: %d\n", test);
 		if((current == test) && (current != 0) && (test != 0)){
 			ar[current_index] = 0;
 			printf("current index: %d\n" , current_index);
-			//	printf("initial index: %d\n", init_ar_index);
 			printf("test index: %d\n", test_index);
 			ar[test_index] = 0;
 			++pair_count;
@@ -55,67 +34,29 @@ int sockMerchant(int n, int ar_count, int* ar) {
 			init_ar_index = ++init_ar_index;	
 			printf("Pair found! current: %d\n", current);
 			printf("Pair found! test: %d\n", test);
-			//cur_ar_index = ++cur_ar_index;
 			while((ar[current_index] == 0) && (current_index <= ar_count-1)){
 				++i;
 				++current_index;
 			}
-			//if(ar[current_index] != 0){
 			printf("ar at init: %d\n", ar[init_ar_index]);
 			if(current_index <= ar_count){
 				current = ar[current_index];
-
-				//cur_ar_index = ++init_ar_index;
-				//	cur_ar_index = init_ar_index;
 				test_index = current_index;	
-				//nex_ar_index = ++cur_ar_index;
-				//	printf("Hello! current index: %d\n", cur_ar_index);
 				++test_index;
-
 				while(ar[test_index] == 0){
 					++test_index;
 				}
 				if(test_index <= (ar_count-1)){
 					test = ar[test_index];	
 				}
-
 			}
-
-			/*
-			   if(ar[test_index] != 0){	
-			   test = ar[nex_ar_index];	
-			//	printf("Pair found! current: %d\n", current);
-			//	printf("Pair found! test: %d\n", test);
-
-			//	printf("current: %d\n", current);
-			printf("init index: %d\n", init_ar_index);
-			printf("next index: %d\n", nex_ar_index);
-
-			}
-			*/	
-			//	}
-			/*
-			   for(i; i < 4; i++){
-			   latest_array[++latest_ar_index] = ar[i];
-			   ++latest_ar_count;
-			   }
-			   */
-			//		ar_count-=2;
-			//		printf("ar_count: %d\n", ar_count);
 			printf("\n");
 		}
 		if(current != test){
 			printf("Pair not found! current: %d\n", current);
 			printf("Pair not found! test: %d\n", test);
-			//latest_array[++latest_ar_index] = test;
-			//++latest_ar_count;
-			//	printf("ar count: %d\n", ar_count);
-			//	printf("ar element %d\n ",test);
-			//ar_count--;
 			printf("\n");
-			//nex_ar_index = init_ar_index;
 			++test_index;
-			//test = ar[++test_index];
 			printf("test_index: %d \n ar[test_index]: %d\n", test_index, ar[test_index]);
 			while(ar[test_index] == 0){
 				++test_index;
@@ -144,29 +85,20 @@ int sockMerchant(int n, int ar_count, int* ar) {
 					}
 				}
 			}
-			//if(test <= 0)
-			//current = ar[++current_index]; 
-			//	printf("Pair not found! current: %d\n", current);
-			//	printf("Pair not found! test: %d\n", test);
 		}
-		//	ar = latest_array;
-		//	test = ar[++nex_ar_index];
 		printf("array\n");
-		for (int i = 0; i < ar_count; i++){
-			printf("%d ", ar[i]);
+		for(int j = 0; j < ar_count; j++){
+			printf("%d ", j);
+		}
+		printf("\n");
+		for (int k = 0; k < ar_count; k++){
+			printf("%d ", ar[k]);
 		}
 		printf("\n\n");
-		/*
-		   printf("\n\nlatest array\n");
-		   for(int i = 0; i < ar_count; i++){
-		   printf("%d ", latest_array[i]);
-		   }
-		   */
-		//		i++;
 
-if(test_index == ar_count){
-i = ar_count;
-}
+		if((test_index >= ar_count) || (current_index >= ar_count+1)){
+			i = ar_count;
+		}
 	}
 	return pair_count;
 }
@@ -188,8 +120,8 @@ int main()
 	 }
 	 */
 //	int n  = 9;
-//int n = 10;
-	int n =15;
+//	int n = 10;
+		int n = 15;
 	/*
 	   char* ar_temp = split_string(str, "10 20 20 10 10 30 50 10 20");
 	   int* ar = malloc(n * sizeof(int));
@@ -204,9 +136,9 @@ int main()
 	 *(ar + i) = ar_item;
 	 }
 	 */
-//	int ar[] =  {10, 20, 20, 10, 10, 30, 50, 10, 20};
-//	int ar[] = {1, 1, 3, 1, 2, 1, 3, 3, 3, 3};	
-int ar[] = {6, 5, 2, 3, 5, 2, 2, 1, 1, 5, 1, 3, 3, 3, 5};
+	//	int ar[] =  {10, 20, 20, 10, 10, 30, 50, 10, 20};
+	//int ar[] = {1, 1, 3, 1, 2, 1, 3, 3, 3, 3};	
+	int ar[] = {6, 5, 2, 3, 5, 2, 2, 1, 1, 5, 1, 3, 3, 3, 5};
 	int ar_count = n;
 	int result = sockMerchant(n, ar_count, ar);
 	//	fprintf(fptr, "%d\n", result);
