@@ -1,0 +1,9 @@
+[master a90ef5a] Here is an updated version of the repository for the purposes of organization.
+ 7 files changed, 476 insertions(+)
+ create mode 100755 countingValleys/countingValleys/countingValleysOriginal.c
+ create mode 100755 countingValleys/countingValleys/countingValleysWork.c
+ create mode 100755 sockMerchant/a.out
+ create mode 100755 sockMerchant/sockMerchant.in
+ create mode 100755 sockMerchant/sockMerchant0.out
+ create mode 100755 sockMerchant/sockMerchantOriginal.c
+ create mode 100755 sockMerchant/sockMerchantWork.c
