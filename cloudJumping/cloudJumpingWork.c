@@ -15,7 +15,8 @@ int jumpingOnClouds(int c_count, int* c) {
 	int i = 0;
 	int jumps = 0;
 	int end_point = 0;
-	int array_count;
+	int last_jump = 0;
+		int array_count;
 	int current_index = 0;
 	int test_index = 0;
 	int next_even_index = 0;
@@ -26,7 +27,9 @@ int jumpingOnClouds(int c_count, int* c) {
 	//	while(i < c_count){
 	end_point = --c_count; 
 	++c_count;
-	for(i = 1; i < c_count; i++){
+last_jump = --end_point;
+++end_point;
+	for(i = 0; i < c_count; i++){
 		//	for(i = 0; i < end_point; i++){
 		printf("i: %d\n", i);
 		/*
@@ -184,11 +187,24 @@ int jumpingOnClouds(int c_count, int* c) {
 					//	if(c[current_index] == 0){
 					printf("a jumps: %d\n\n",++jumps);
 					while(c[current_index] == 0){
+				i+=2;
+				current_index+=2;
+						if(current_index < last_jump){
 						++jumps;
-						i+=2;
-						current_index+=2;
+					}
+					//if(i <  end_point){
+					//	i+=2;
+					//	current_index+=2;
+			printf("a i: %d\tcurrent index: %d\n\n", i, current_index);
+						//	}
 						//++i;
 					}
+		/*
+					if(c[current_index] == 1){
+printf("while loop a stopped at current_index: %d\ti: %d\n\n", current_index, i);
+		i-=3;
+			}
+		*/	
 				}
 				//	}
 				printf("i test 1: %d\n\n", i);	
@@ -202,11 +218,24 @@ int jumpingOnClouds(int c_count, int* c) {
 					if(c[--current_index] == 0){
 						printf("b jumps: %d\n\n", ++jumps);
 						while((c[current_index]) != 1){
-							++jumps;
-							i+=2;
+					i+=2;
 					current_index+=2;
+							if(current_index < last_jump){
+							++jumps;
 						}
-					}
+					//	if(i < end_point){
+						//	i+=2;
+				//	current_index+=2;
+					printf("b i: %d\tcurrent index: %d\n\n", i, current_index);
+					//	}
+						}
+			/*	
+				if(c[current_index] == 1){
+printf("while loop b stopped at current_index: %d\ti: %d\n\n", current_index, i);
+		i-=3;	
+				}
+			*/
+				}
 					printf("hello current index %d\n\n", current_index);	
 					/*	if(((current_index+=3) < end_point) && c[current_index] == 0){
 						if(c[--current_index] == 0){
@@ -299,15 +328,15 @@ int jumpingOnClouds(int c_count, int* c) {
 				   char* s = readline();
 				   */
 
-					int n = 7;
+			//		int n = 7;
 				//	int n = 6;
 				//int n =9;
 				//	int n = 10;
-				//int n = 85;
+			int n = 85;
 				int c_count = n;
 				//	int c[] = {0, 1, 0, 0, 0, 1, 0};
 				//	int c[] = {0, 0, 1, 0, 0, 0, 0};
-						int c[] = {0, 0, 1, 0, 0, 1, 0};
+				//here		int c[] = {0, 0, 1, 0, 0, 1, 0};
 				//	int c[] = {0, 1, 0, 0, 1, 0, 0};
 				//int c[] = {0, 0, 1, 0, 1, 0, 0};
 				//		int c[] = {0, 0, 0, 1, 0, 1, 0};
@@ -317,14 +346,13 @@ int jumpingOnClouds(int c_count, int* c) {
 				//	int c[] = {0, 1, 0, 0, 1, 0, 0, 1, 0, 0};
 				//int c[] = {0, 0, 1, 0, 1, 0, 1, 0, 1, 0};
 				//int c[] = {0, 0, 0, 1, 0, 1, 0, 0, 1, 0};
-			
-			/*
+					
 				int c[] = {0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 
 					0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 
 					0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1,
 					0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0};
 
-					*/
+					
 				int result = jumpingOnClouds(c_count, c);
 
 				//	fprintf(fptr, "%d\n", result);

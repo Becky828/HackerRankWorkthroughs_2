@@ -1,24 +1,190 @@
-i: 1
+i: 0
+this i and endpoint: 0	84
 
-c count: 7
+a jumps: 1
 
-i: 2
-this i and endpoint: 2	6
+a i: 2	current index: 2
 
-i test 1: 2
+a i: 4	current index: 4
 
-current index test 1: 2
+a i: 6	current index: 6
+
+a i: 8	current index: 8
+
+a i: 10	current index: 10
+
+a i: 12	current index: 12
+
+a i: 14	current index: 14
+
+i test 1: 14
+
+current index test 1: 14
 
 c[current_index] test 1: 1
 
-b jumps: 1
+b jumps: 9
 
-hello current index 5
+b i: 16	current index: 15
+
+b i: 18	current index: 17
+
+b i: 20	current index: 19
+
+b i: 22	current index: 21
+
+hello current index 21
 
 
-c count: 7
+c count: 85
+
+i: 23
+
+c count: 85
+
+i: 24
+this i and endpoint: 24	84
+
+a jumps: 14
+
+a i: 26	current index: 26
+
+i test 1: 26
+
+current index test 1: 26
+
+c[current_index] test 1: 1
+
+b jumps: 16
+
+b i: 28	current index: 27
+
+b i: 30	current index: 29
+
+b i: 32	current index: 31
+
+b i: 34	current index: 33
+
+b i: 36	current index: 35
+
+b i: 38	current index: 37
+
+b i: 40	current index: 39
+
+b i: 42	current index: 41
+
+b i: 44	current index: 43
+
+b i: 46	current index: 45
+
+b i: 48	current index: 47
+
+b i: 50	current index: 49
+
+b i: 52	current index: 51
+
+b i: 54	current index: 53
+
+b i: 56	current index: 55
+
+b i: 58	current index: 57
+
+b i: 60	current index: 59
+
+hello current index 59
 
 
-0: 0	1: 0	2: 1	3: 0	4: 0	5: 1	6: 0	
+c count: 85
 
-3
+i: 61
+
+c count: 85
+
+i: 62
+this i and endpoint: 62	84
+
+a jumps: 34
+
+a i: 64	current index: 64
+
+a i: 66	current index: 66
+
+i test 1: 66
+
+current index test 1: 66
+
+c[current_index] test 1: 1
+
+b jumps: 37
+
+b i: 68	current index: 67
+
+b i: 70	current index: 69
+
+b i: 72	current index: 71
+
+hello current index 71
+
+
+c count: 85
+
+i: 73
+
+c count: 85
+
+i: 74
+this i and endpoint: 74	84
+
+i test 1: 74
+
+current index test 1: 74
+
+c[current_index] test 1: 1
+
+b jumps: 41
+
+b i: 76	current index: 75
+
+b i: 78	current index: 77
+
+b i: 80	current index: 79
+
+b i: 82	current index: 81
+
+hello current index 81
+
+
+c count: 85
+
+i: 83
+
+c count: 85
+
+i: 84
+this i and endpoint: 84	84
+
+a jumps: 46
+
+a i: 86	current index: 86
+
+i test 1: 86
+
+current index test 1: 86
+
+c[current_index] test 1: 85
+
+
+c count: 85
+
+
+0: 0	1: 1	2: 0	3: 1	4: 0	5: 1	6: 0	7: 0	8: 0	9: 0	
+10: 0	11: 0	12: 0	13: 0	14: 1	15: 0	16: 1	17: 0	18: 0	19: 0	
+20: 0	21: 1	22: 0	23: 1	24: 0	25: 0	26: 1	27: 0	28: 0	29: 0	
+30: 1	31: 0	32: 1	33: 0	34: 0	35: 0	36: 1	37: 0	38: 1	39: 0	
+40: 1	41: 0	42: 1	43: 0	44: 0	45: 0	46: 1	47: 0	48: 0	49: 0	
+50: 0	51: 0	52: 1	53: 0	54: 1	55: 0	56: 1	57: 0	58: 0	59: 1	
+60: 0	61: 1	62: 0	63: 1	64: 0	65: 0	66: 1	67: 0	68: 0	69: 0	
+70: 0	71: 1	72: 0	73: 0	74: 1	75: 0	76: 0	77: 0	78: 1	79: 0	
+80: 0	81: 1	82: 0	83: 1	84: 0	
+
+46
